@@ -1,0 +1,10 @@
+[package]
+name = "phorge"
+version = "1.0.0"
+authors = ["Will Bickford <wbic16@gmail.com>"]
+description = "Generates gameplay data for nova fox, 1 KB at a time."
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10.8"

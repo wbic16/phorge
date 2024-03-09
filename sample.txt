@@ -1,0 +1,7 @@
+run forward 3 meters
+spin 270 clockwise
+walk forward 5 meters
+stomp enemy
+heal player2 500
+run forward 2 meters
+run forward 3 meters
