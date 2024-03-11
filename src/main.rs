@@ -36,8 +36,10 @@ fn main() {
     output = &args[2];
   }
 
-  println!("Reviewing {} for gameplay data...", file);
-
+  if cfg!(debug_assertions) {
+    println!("Reviewing {} for gameplay data...", file);
+  }
+  
   if fs::metadata(output).is_ok() {
     fs::remove_file(output).expect("unable to clear output file");
     return;
@@ -51,8 +53,9 @@ fn main() {
   let message = "Unable to find ".to_owned() + file;
   let buffer:String = fs::read_to_string(file).expect(&message);
   let lines = buffer.split("\n").collect::<Vec<&str>>();
-  println!("Read {} lines and {} bytes from {}.", lines.len(), buffer.len(), file);
-
+  if cfg!(debug_assertions) {
+    println!("Read {} lines and {} bytes from {}.", lines.len(), buffer.len(), file);
+  }
   let nova_fox_version: String = buffer_hash_62(lines[0].into());
   let user_email: String = buffer_hash_62(lines[1].into());
   let user_seed: String = buffer_hash_62(lines[2].into());
