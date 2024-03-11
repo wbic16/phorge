@@ -96,6 +96,6 @@ fn main() {
     println!("{}", digest);           
     println!("{}", final_hash);       
   } else {
-    println!("{}", main_hash);
+    println!("{}", main_hash.chars().take(1024).collect::<String>());
   }
 }
